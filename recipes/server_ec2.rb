@@ -39,7 +39,7 @@ if (node.attribute?('ec2') && ! FileTest.directory?(node['mysql']['ec2_path']))
   mount node['mysql']['data_dir'] do
     device node['mysql']['ec2_path']
     fstype "none"
-    options "bind,rw"
+    options "bind,rw,nobootwait,nofail"
     action [:mount, :enable]
   end
 
